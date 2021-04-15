@@ -167,9 +167,7 @@ The Firefox HTML parser assumes a non-alpha-non-digit is not valid after an HTML
 
 Based on the same idea as above, however,expanded on it, using Rnake fuzzer. The Gecko rendering engine allows for any character other than letters, numbers or encapsulation chars (like quotes, angle brackets, etc...) between the event handler and the equals sign, making it easier to bypass cross site scripting blocks. Note that this also applies to the grave accent char as seen here:
 
-````
-<BODY onload!#$%&()*~+-_.,:;?@[/|\]^`=alert("XSS")>
-```
+`<BODY onload!#$%&()*~+-_.,:;?@[/|\]^``=alert("XSS")>`
 
 Yair Amit brought this to my attention that there is slightly different behavior between the IE and Gecko rendering engines that allows just a slash between the tag and the parameter with no spaces. This could be useful if the system does not allow spaces.
 
